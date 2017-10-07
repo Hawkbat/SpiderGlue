@@ -2,6 +2,7 @@
 let findUp = require('find-up')
 let glob = require('glob')
 let cheerio = require('cheerio')
+let pretty = require('pretty')
 let fs = require('fs-extra')
 let path = require('path')
 
@@ -16,10 +17,8 @@ console.log('Source: ' + srcPath)
 console.log('Destination: ' + dstPath)
 
 function replaceImports(htmlPath, $) {
-	console.log('Replacing ' + path.relative(srcPath, htmlPath))
 	$('link[rel="import"]').each((i, ele) => {
 		let importPath = ele.attribs['href']
-		console.log('Found sub-import: ' + importPath)
 		if (importPath.startsWith('/')) {
 			importPath = path.join(srcPath, importPath)
 		} else {
@@ -43,6 +42,6 @@ for (let htmlPath of htmlPaths) {
 	let $ = cheerio.load(fs.readFileSync(htmlPath, 'utf8'), { decodeEntities: false })
 	replaceImports(htmlPath, $)
 	fs.ensureFileSync(outPath)
-	fs.writeFileSync(outPath, $.html(), 'utf8')
+	fs.writeFileSync(outPath, pretty($.html(), { ocd: true }), 'utf8')
 	console.log('Wrote: ' + relPath)
 }
