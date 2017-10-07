@@ -1,0 +1,26 @@
+{
+  "name": "spider-glue",
+  "version": "0.1.0",
+  "description": "An HTML preprocessor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "spiderglue": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hawkbat/SpiderGlue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hawkbat/SpiderGlue/issues"
+  },
+  "homepage": "https://github.com/Hawkbat/SpiderGlue#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "find-up": "^2.1.0",
+    "fs-extra": "^4.0.2",
+    "glob": "^7.1.2"
+  }
+}

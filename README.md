@@ -1,2 +1,2 @@
 # SpiderGlue
-A preprocessor for compiling HTML snippets together.
+A preprocessor for compiling HTML snippets together. Replaces `<link rel="import">` elements with the actual contents of the referenced file. Name partial HTML files using the `*.part.html` naming convention to skip copying them to the destination folder.
